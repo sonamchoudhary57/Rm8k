@@ -162,7 +162,7 @@ def deleteevents():
     delete.accept()
 
 
-# call all functions
+# call funtions
 # Login(driver)
 
 # cookies = driver.get_cookies()
