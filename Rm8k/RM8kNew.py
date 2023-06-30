@@ -21,7 +21,7 @@ def ValidateLogin():
     else:
         print("login test failed")
 
-#ADD GROUP
+
 def AddGroup():
     
 
