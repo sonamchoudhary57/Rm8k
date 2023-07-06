@@ -6,6 +6,7 @@ class LoginPage:
     txtbox_username_name="Email"
     txtbox_password_name="Password"
     button_login_xpath="//button[normalize-space()='Submit']"
+    # txt_msg_xpath="//div[@role='alert']"
 
     #constructor
     def __init__(self,driver):
