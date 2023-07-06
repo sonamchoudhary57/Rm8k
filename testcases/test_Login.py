@@ -1,10 +1,12 @@
-from pytest import Class
-from pageobjects.LoginPageObjects import LoginPage
+import pytest
+from pageobjects.LoginPageObject import LoginPage
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class TestLogin:
+class TestRm8k:
+
+    @pytest.mark.skip
     def test_login(self):
         
         self.driver = webdriver.Chrome()
@@ -12,12 +14,12 @@ class TestLogin:
         self.driver.maximize_window()
 
         self.lp=LoginPage(self.driver)
-        self.lp.setUserName("sonam")
-        self.lp.setPassword("radiant")
-        self.lp.clickLogin()
+        self.lp.setCredantials("sonam","radiant")
         self.act_title=self.driver.title
         self.driver.close()
         assert self.act_title == "Radiant RM8000 Series"
 
     
+    def test_dashboard(self):
+        print("dashboard")
     

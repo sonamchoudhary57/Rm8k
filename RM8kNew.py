@@ -176,11 +176,11 @@ def deleteevents(self,setup):
 # for cookie in cookies:
 #     print(cookie)
 # ValidateLogin()
-# AddGroup()
+AddGroup()
 cookies(driver)
 time.sleep(3)
-# DeleteFunctionality()
-# UpdateFunctionality("save")
-# createRecording()
+DeleteFunctionality()
+UpdateFunctionality("save")
+createRecording()
 deleteevents()
 
