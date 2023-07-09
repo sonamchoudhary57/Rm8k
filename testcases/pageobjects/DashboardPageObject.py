@@ -49,7 +49,11 @@ class DashboardPage:
 
     
      #action methods
-     def addGrp():
+     def addGrp(self,grpname):
+         self.driver.find_element(By.ID,self.txtbox_grpname_id).send_keys(grpname)
+         self.driver.find_element(By.XPATH,self.btn_selectgrp_xpath).click()
+         self.driver.find_element(By.XPATH,self.txt_selectgrp_xpath).click()
+         self.driver.find_element(By.XPATH,self. btn_savegrp_xpath).click()
          
-
-
+         
+         

@@ -2,11 +2,11 @@ import pytest
 from pageobjects.LoginPageObject import LoginPage
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from pageobjects.DashboardPageObject import DashboardPage
 
 
 class TestRm8k:
 
-    @pytest.mark.skip
     def test_login(self):
         
         self.driver = webdriver.Chrome()
@@ -20,6 +20,7 @@ class TestRm8k:
         assert self.act_title == "Radiant RM8000 Series"
 
     
-    def test_dashboard(self):
-        print("dashboard")
-    
+    def test_addgrp(self):
+        self.ag=DashboardPage(self.driver)
+        self.ag.addGrp("abc123")
+        self.driver.close()
