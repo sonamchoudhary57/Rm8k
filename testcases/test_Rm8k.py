@@ -20,7 +20,7 @@ class TestRm8k:
         assert self.act_title == "Radiant RM8000 Series"
 
     
-    def test_addgrp(self):
+
         self.ag=DashboardPage(self.driver)
         self.ag.addGrp("abc123")
         self.driver.close()
