@@ -22,16 +22,6 @@ def setup():
     driver.quit()
 
 
-# def ValidateLogin(self,setup):
-
-#     act_title=self.driver.title
-#     exp_title="Radiant RM8000 Series"
-#     if act_title==exp_title:
-#         print("Login test passed")
-#     else:
-#         print("login test failed")
-
-
 def test_addgroup(setup):
 
     addgrp=driver.find_element(By.XPATH,"//i[@title='Add Group']")
