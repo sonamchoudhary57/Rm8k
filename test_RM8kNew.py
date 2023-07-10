@@ -5,26 +5,24 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from setcookies import cookies
+from setcookies import Login, cookies
 import pytest
 driver = webdriver.Chrome()
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def setup():
-
     driver = webdriver.Chrome()
     driver.get("http://44.211.158.119/login")
     driver.implicitly_wait(10)
-
     driver.maximize_window()
+    cookies(driver)
+    # Login(driver)
     yield driver
-
-    driver.quit()
 
 
 def test_addgroup(setup):
-
-    addgrp=driver.find_element(By.XPATH,"//i[@title='Add Group']")
+    time.sleep(5)
+    addgrp=setup.find_element(By.XPATH,"//i[@title='Add Group']")
     addgrp.click()
 
     driver.find_element(By.NAME,"name").send_keys("G6135")
@@ -161,18 +159,8 @@ def test_deleteevents(self,setup):
     delete.accept()
 
 
-# call
-# Login(driver)
 
-# cookies = driver.get_cookies()
-# for cookie in cookies:
-#     print(cookie)
-# ValidateLogin()
-# addGroup()
-cookies(driver)
+# cookies(driver)
 time.sleep(3)
-# DeleteFunctionality()
-# UpdateFunctionality("save")
-# createRecording()
-# deleteevents()
+
 
