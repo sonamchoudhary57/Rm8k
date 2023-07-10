@@ -25,15 +25,15 @@ def test_addgroup(setup):
     addgrp=setup.find_element(By.XPATH,"//i[@title='Add Group']")
     addgrp.click()
 
-    driver.find_element(By.NAME,"name").send_keys("G6135")
-    driver.find_element(By.XPATH,"//button[normalize-space()='Select Parent Group']").click()
-    driver.find_element(By.XPATH,"//a[normalize-space()='root']").click()
-    driver.find_element(By.XPATH,"//button[normalize-space()='Submit']").click()
-    elements = driver.find_elements(By.CLASS_NAME,"rct-icon rct-icon-uncheck")
+    setup.find_element(By.NAME,"name").send_keys("G6135")
+    setup.find_element(By.XPATH,"//button[normalize-space()='Select Parent Group']").click()
+    setup.find_element(By.XPATH,"//a[normalize-space()='root']").click()
+    setup.find_element(By.XPATH,"//button[normalize-space()='Submit']").click()
+    elements = setup.find_elements(By.CLASS_NAME,"rct-icon rct-icon-uncheck")
     for x in elements:
         print(x)
         x.click()
-
+    assert setup.find_element(By.XPATH,"//span[contains(text(),'G6135')]").is_displayed()
  #ADD DEVICE
 @pytest.mark.skip
 def test_addDevice(self,setup):

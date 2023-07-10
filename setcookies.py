@@ -8,15 +8,15 @@ def cookies(driver):
     cookies = [
         {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess.sig', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 's3IsPCGRnnb1eTQ-FoshNTv_ZTI'},
         {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJ1c2VyIjp7Il9pZCI6IjY0YWI5YzgwNGE1ZTE5OTllMjQ4NTliYiIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoic29uYW0ifX0='},    
-        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmFtIiwiaWF0IjoxNjg4OTc4NTE5fQ.05MaLmKGk9QLhOquMfG0BI8Jyw5i8Y_WE7ne9-cHe6k'}
+        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmFtIiwiaWF0IjoxNjg4OTg0MzYxfQ.hzomUhw6Nk9HGeA0PVouJxOHadV1IGJO8Bt0MzTmAMI'}
     ]
     for x in cookies:
         driver.add_cookie(x)
     
     Localstoragedata = [
-        {'deviceId':'64a7f30a8a6ab656aaef0d88'},
+        {'deviceId':'64ab9e0c70f32499e27203a8'},
         {'validateLicense':'true'},
-        {'exp'	:'2023-07-11T08:41:59.510Z'},	
+        {'exp'	:'2023-07-11T10:19:21.992Z'},	
         {'user_info':'{"user_id":"64ab9c804a5e1999e24859bb","username":"sonam","role":"admin"}'},
         {'token':'sbvv78dgashjt7632thbhbdas'},	
         {'message':'valid'}	
