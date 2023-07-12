@@ -10,10 +10,9 @@ driver = webdriver.Chrome()
 driver.get("http://44.211.158.119/login")
 driver.implicitly_wait(10)
 # call
+Login(driver)
+time.sleep(10)
 
-# Login(driver)
-# time.sleep(10)
-
-# cookies = driver.get_cookies()
-# for cookie in cookies:
-#     print(cookie)
+cookies = driver.get_cookies()
+for cookie in cookies:
+    print(cookie)

@@ -6,18 +6,18 @@ from selenium import webdriver
 
 def cookies(driver):
     cookies = [
-        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess.sig', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 's3IsPCGRnnb1eTQ-FoshNTv_ZTI'},
-        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJ1c2VyIjp7Il9pZCI6IjY0YWI5YzgwNGE1ZTE5OTllMjQ4NTliYiIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoic29uYW0ifX0='},    
-        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmFtIiwiaWF0IjoxNjg4OTg0MzYxfQ.hzomUhw6Nk9HGeA0PVouJxOHadV1IGJO8Bt0MzTmAMI'}
+        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess.sig', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'h_HT6r8qxwGGxiCSYY0cVJj0UZ8'},
+        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'express:sess', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJ1c2VyIjp7Il9pZCI6IjY0YWQxNzg3MzM0MWU1MTliYTIzZGY3MSIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoic29uYW0ifX0='},    
+        {'domain': '44.211.158.119', 'expiry': 1723537973, 'httpOnly': True, 'name': 'token', 'path': '/', 'sameSite': 'Lax', 'secure': False, 'value': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNvbmFtIiwiaWF0IjoxNjg5MTQyOTE1fQ.VcUdcDSoGUI9FJSVyLAfsK3ztHE6AovlVxeEPR64zBU'}
     ]
     for x in cookies:
         driver.add_cookie(x)
     
     Localstoragedata = [
-        {'deviceId':'64ab9e0c70f32499e27203a8'},
+        {'deviceId':'64ad1a32f34c9319ba73fda2'},
         {'validateLicense':'true'},
-        {'exp'	:'2023-07-11T10:19:21.992Z'},	
-        {'user_info':'{"user_id":"64ab9c804a5e1999e24859bb","username":"sonam","role":"admin"}'},
+        {'exp'	:'2023-07-13T06:21:55.651Z'},	
+        {'user_info':'{"user_id":"64ad17873341e519ba23df71","username":"sonam","role":"admin"}'},
         {'token':'sbvv78dgashjt7632thbhbdas'},	
         {'message':'valid'}	
        ]

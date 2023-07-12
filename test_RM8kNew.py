@@ -19,7 +19,7 @@ def setup():
     # Login(driver)
     yield driver
 
-
+@pytest.mark.skip
 def test_addgroup(setup):
     time.sleep(5)
     addgrp=setup.find_element(By.XPATH,"//i[@title='Add Group']")
@@ -34,55 +34,80 @@ def test_addgroup(setup):
         print(x)
         x.click()
     assert setup.find_element(By.XPATH,"//span[contains(text(),'G6135')]").is_displayed()
- #ADD DEVICE
-@pytest.mark.skip
-def test_addDevice(self,setup):
 
-    self.driver.find_element(By.XPATH,"//button[@title='Add Device']").click()
-    add_device=self.driver.find_element(By.ID,"sourceAddress")
+
+#ADD DEVICE
+@pytest.mark.skip
+def test_addDevice(setup):
+
+    setup.find_element(By.XPATH,"//button[@title='Add Device']").click()
+    add_device=setup.find_element(By.ID,"sourceAddress")
     add_device.send_keys("http://50.239.254.200")
-    self.driver.find_element(By.XPATH,"//button[normalize-space()='Select Group']").click()
-    self.driver.find_element(By.XPATH,"//a[normalize-space()='root']").click()
-    self.driver.find_element(By.XPATH,"//button[normalize-space()='Save']").click()
+    setup.find_element(By.XPATH,"//button[normalize-space()='Select Group']").click()
+    setup.find_element(By.XPATH,"//a[normalize-space()='root']").click()
+    setup.find_element(By.XPATH,"//button[normalize-space()='Save']").click()
+    assert setup.find_element(By.XPATH,"//span[contains(text(),'RM1121XD(50.239.254.200)')]").is_displayed()
 
     time.sleep(3)
 
+
+
+#UPdate Funtionality
+@pytest.mark.skip
+def test_updateFunctionality(setup):
+
+    checkboxes = setup.find_elements(By.XPATH, "//span[contains(@class, 'rct-icon-uncheck')]")
+    checkboxes[len(checkboxes)-1].click()
+
+    setup.find_element(By.XPATH,"//button[@title='Update Checked Device']").click()
+    setup.find_element(By.XPATH,"//button[normalize-space()='Configure RemoteControls']").click()
+    time.sleep(1)
+    remotePort = setup.find_elements(By.TAG_NAME, "legend")
+    remotePort[3].click()
+    time.sleep(5)
+    # if action == 'save':
+    setup.find_element(By.XPATH,"//button[@class='btn-fill btn btn-dark']").click()
+#     else:
+# #  cancel update devicebtn-fill btn btn-dark
+#         setup.find_element(By.XPATH,"//button[@class='btn-fill btn btn-primary']").click()
+#         setup.find_element(By.XPATH,"//button[normalize-space()='Cancel']").click()
+#     time.sleep(5)
+
+
+#Opening player 
+@pytest.mark.skip
+def test_openPlayer(setup):
+    setup.find_element(By.XPATH,"//span[contains(text(),'RM1121XD(50.239.254.195)')]").click()
+    setup.find_element(By.XPATH,"//span[contains(text(),'RM1121XD(50.239.254.200)')]").click()
+    setup.find_element(By.XPATH,"//button[@title='Setting']").click()
+    selectinput=Select(setup.find_element(By.ID,"inputPort"))
+    time.sleep(5)
+    selectinput.select_by_visible_text("Input Port 3")
+    time.sleep(5)
+    setup.find_element(By.XPATH,"//button[normalize-space()='Apply']").click()
+    time.sleep(10)
+    setup.find_element(By.XPATH,"//span[normalize-space()='×']").click()
+    setup.find_element(By.XPATH,"//button[@class='btn btn-danger player_cut btn btn-primary']").click()
+    time.sleep(5)
+
+
 #Delete funtionality 
 @pytest.mark.skip
-def test_deleteFunctionality(self,setup):
+def test_deleteFunctionality(setup):
 
-    checkboxes = self.driver.find_elements(By.XPATH, "//span[contains(@class, 'rct-icon-uncheck')]")
+    checkboxes = setup.find_elements(By.XPATH, "//span[contains(@class,'btn btn-danger')]")
     checkboxes[len(checkboxes)-1].click()
     time.sleep(5)
 
-    delete=self.driver.find_element(By.XPATH,"//i[@title='Delete Checked Device']").click()
+    delete=setup.find_element(By.XPATH,"//i[@title='Delete Checked Device']").click()
     time.sleep(5)
-    delete=self.driver.switch_to.alert
+    delete=setup.switch_to.alert
     print(delete.text)
     delete.accept()
 
     time.sleep(5)
+ 
 
-#UPdate Funtionality
-@pytest.mark.skip
-def test_updateFunctionality(self,setup,action):
-
-    checkboxes = self.driver.find_elements(By.XPATH, "//span[contains(@class, 'rct-icon-uncheck')]")
-    checkboxes[len(checkboxes)-1].click()
-
-    self.driver.find_element(By.XPATH,"//button[@title='Update Checked Device']").click()
-    self.driver.find_element(By.XPATH,"//button[normalize-space()='Configure RemoteControls']").click()
-    time.sleep(1)
-    remotePort = self.driver.find_elements(By.TAG_NAME, "legend")
-    remotePort[3].click()
-    time.sleep(5)
-    if action == 'save':
-        self.driver.find_element(By.XPATH,"//button[@class='btn-fill btn btn-dark']").click()
-    else:
-#  cancel update devicebtn-fill btn btn-dark
-        self.driver.find_element(By.XPATH,"//button[@class='btn-fill btn btn-primary']").click()
-        self.driver.find_element(By.XPATH,"//button[normalize-space()='Cancel']").click()
-    time.sleep(5)
 
 @pytest.mark.skip
 def test_createRecording(self,setup):
@@ -159,6 +184,40 @@ def test_deleteevents(self,setup):
     delete.accept()
 
 
+@pytest.mark.skip
+def test_adduser(setup):
+    setup.find_element(By.LINK_TEXT,"SETTINGS").click()
+    setup.find_element(By.ID,"left-tabs-example-tab-users").click()
+    setup.find_element(By.XPATH,"//button[normalize-space()='ADD NEW']").click()
+    setup.find_element(By.NAME,"Musername").send_keys("sonam123")
+    time.sleep(5)
+    usertype=Select(setup.find_element(By.ID,"MuserType"))
+    time.sleep(5)
+    usertype.select_by_visible_text("Admin")
+    setup.find_element(By.ID,"mpassword").send_keys("sonam123")
+    setup.find_element(By.XPATH,"//button[@class='btn-fill btn btn-primary']").click()
+    time.sleep(10)
+
+# def test_edituser(setup):
+#      setup.find_element(By.XPATH,"").click()
+#      setup.find_element(By.NAME,"Musername").send_keys("sonam12345")
+#      setup.find_element(By.XPATH,"//button[@class='btn-fill btn btn-primary']").click()
+#      time.sleep(10)
+
+def test_deleteuser(setup):
+    setup.find_element(By.LINK_TEXT,"SETTINGS").click()
+    setup.find_element(By.ID,"left-tabs-example-tab-users").click()
+    deletes=setup.find_element(By.XPATH,"//button[@class='btn btn-danger']")
+    deletes[1].click()
+    time.sleep(5)
+    delete=setup.switch_to.alert
+    print(delete.text)
+    delete.accept()
+
+
+  
+    
+ 
 
 # cookies(driver)
 time.sleep(3)
